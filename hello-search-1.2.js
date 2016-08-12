@@ -33,14 +33,14 @@ $(document).ready(function(){
   
   function appendSearchResult(what) {
     var findWhat = new RegExp(what.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'));
-    # escaping for regexp
-    # http://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
+    // escaping for regexp
+    // http://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
     console.log(findWhat);
     $.ajax(fileHello, commonParams
     ).done(function(result){
       $.each(result, function(i, val){
         strVal = JSON.stringify(val);
-        # it includes also keys, but is simplest for this example.
+        // it includes also keys, but is simplest for this example.
         console.log(strVal);
         if(findWhat.test(strVal)) {
           $("#result").append(makeHtmlTrTd(val));
