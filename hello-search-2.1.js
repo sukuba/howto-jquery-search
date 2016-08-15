@@ -94,7 +94,7 @@ $(document).ready(function(){
   }
   
   function appendSearchResult(what) {
-    var findWhat = new RegExp(what.trim().replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'));
+    var findWhat = new RegExp(what.trim().replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i');
     var fileSheet = $('#sheet').val();
     console.log(findWhat);
     console.log(fileSheet);
