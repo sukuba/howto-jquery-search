@@ -34,6 +34,7 @@ $(document).ready(function(){
       var url = tds[urlAt];
       if(i == urlShow && url) {
         tr.push('<a href="');
+        tr.push(linkBase);
         tr.push(url);
         tr.push('" target="_blank">');
         tr.push(tds[i]);
@@ -67,8 +68,10 @@ $(document).ready(function(){
     mimeType: 'text/plain; charset=utf8'
   }
   
-  var fileColumns = 'priv/columns.json';
-  var fileIndex = 'priv/index.json';
+  var linkBase = 'hoge/';
+  var jsonBase = 'priv/';
+  var fileColumns = jsonBase + 'columns.json';
+  var fileIndex = jsonBase + 'index.json';
   var urlAt = 6;
   var urlShow = 4;
   
@@ -84,7 +87,7 @@ $(document).ready(function(){
     $.ajax(fileIndex, commonParams
     ).done(function(result){
       $.each(result, function(idx, val){
-        $('#sheet').append(makeHtmlOption(val['url'], val['title']));
+        $('#sheet').append(makeHtmlOption(jsonBase + val['url'], val['title']));
       });
     }).fail(failMessageHandler
     );
